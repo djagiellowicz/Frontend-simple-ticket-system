@@ -1,0 +1,43 @@
+<div ng-controller="View2Ctrl as ctrl">
+  <form>
+    <h1>Registration form:</h1>
+    <div class="row form-group">
+      <div class="col-md-3">
+        <label for="login">Login:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="login" type="text" ng-model="ctrl.formUser.login"></input>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        <label for="name">Name:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="name" type="text" ng-model="ctrl.formUser.name"></input>
+      </div>
+    </div>
+    <div class="row form-group" >
+      <div class="col-md-3">
+        <label for="surname">Surname:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="surname" type="text" ng-model="ctrl.formUser.surname"></input>
+      </div>
+    </div>
+    <div class="row form-group" >
+      <div class="col-md-3">
+        <label for="password">Password:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="password" type="password" ng-model="ctrl.formUser.password"></input>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <input class="form-control" type="button" ng-click="ctrl.sendToBackend()" value="Register">
+      </div>
+    </div>
+  </form>
+</div>
