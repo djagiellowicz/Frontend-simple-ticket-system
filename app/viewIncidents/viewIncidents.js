@@ -28,20 +28,28 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
             $http.get(URL + restOfURL)
                 .then(
                     function (data) {
-                        console.log(data);
-                        var incidents = data.data.objects;
-                        self.pageNumber = data.data.currentPage;
+                            console.log(data);
+                            var incidents = data.data.objects;
+                            self.pageNumber = data.data.currentPage;
 
-                        self.incidentsList = [];
-                        for (var index in incidents){
-                            console.log(incidents[index])
-                            self.userList.push(incidents[index]);
+                            self.incidentsList = [];
+                            for (var index in incidents){
+                                console.log(incidents[index]);
+                                self.incidentsList.push(incidents[index]);
+                            }
+                        },
+                        function () {
+                            console.log("error");
                         }
-                    },
-                    function () {
-                        console.log("error");
-                    }
                 );
+        };
+        this.nextPage = function(){
+            self.pageNumber = self.pageNumber + 1;
+            self.fetchIncidents();
+        };
+        this.previousPage = function(){
+            self.pageNumber = self.pageNumber - 1;
+            self.fetchIncidents();
         };
         self.fetchIncidents();
 

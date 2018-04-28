@@ -12,7 +12,6 @@ angular.module('myApp.view2', ['ngRoute'])
 .controller('View2Ctrl', ['$http', function ($http) {
   var self = this;
   var URL = 'http://localhost:8080';
-
   var formUser = {
       'login': '',
       'name': '',

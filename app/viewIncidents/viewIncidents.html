@@ -8,16 +8,19 @@
             <th> Identifier </th>
             <th> Title </th>
             <th> Description </th>
+            <th> Status </th>
+
             </thead>
             <tr ng-repeat="element in ctrl.incidentsList">
                 <td>{{element.id}}</td>
                 <td>{{element.title}}</td>
                 <td>{{element.description}}</td>
+                <td>{{element.status}}</td>
             </tr>
         </table>
     </div>
     <div>
-        <!--<button ng-if="ctrl.pageNumber > 0" ng-click="ctrl.previousPage()">Previous page</button>-->
-        <!--<button ng-click="ctrl.nextPage()">Next Page</button>-->
+        <button ng-if="ctrl.pageNumber > 0" ng-click="ctrl.previousPage()">Previous page</button>
+        <button ng-click="ctrl.nextPage()">Next Page</button>
     </div>
 </div>

@@ -35,7 +35,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
                         self.userList = [];
                         for (var index in users){
-                          console.log(users[index])
+                          console.log(users[index]);
                           self.userList.push(users[index]);
                         }
                     },
