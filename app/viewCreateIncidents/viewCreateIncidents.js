@@ -22,9 +22,9 @@ angular.module('myApp.viewCreateIncidents', ['ngRoute'])
                 .then(function(data){
                     console.log(data);
 
+                    document.getElementById("incident_form").reset();
                 }), function (data) {
                 console.log(data);
-
             }
         }
     }]);

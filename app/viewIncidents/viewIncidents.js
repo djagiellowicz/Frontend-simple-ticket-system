@@ -15,6 +15,7 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
         var self = this;
         self.incidentsList = [];
         self.pageNumber = 0;
+        self.totalNumberOfElements = 0;
 
 
         this.fetchIncidents = function () {
@@ -31,6 +32,7 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
                             console.log(data);
                             var incidents = data.data.objects;
                             self.pageNumber = data.data.currentPage;
+                            self.totalNumberOfElements = data.data.numberOfElements;
 
                             self.incidentsList = [];
                             for (var index in incidents){

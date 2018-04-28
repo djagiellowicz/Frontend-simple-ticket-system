@@ -8,7 +8,6 @@ angular.module('myApp.view1', ['ngRoute'])
     controller: 'View1Ctrl'
   });
 }])
-
     .controller('View1Ctrl', ['$http', '$rootScope', function ($http, $rootScope) {
         var URL = 'http://localhost:8080';
         var restOfURL = '/user/list';
@@ -16,7 +15,7 @@ angular.module('myApp.view1', ['ngRoute'])
         self.loggedInUser = $rootScope.loggedInUser;
         self.userList = [];
         self.pageNumber = 0;
-
+        self.totalNumberOfElements = 0;
 
         this.fetchUsers = function () {
           if (self.pageNumber != 0) {
@@ -32,6 +31,7 @@ angular.module('myApp.view1', ['ngRoute'])
                         console.log(data);
                         var users = data.data.objects;
                         self.pageNumber = data.data.currentPage;
+                        self.totalNumberOfElements = data.data.numberOfElements;
 
                         self.userList = [];
                         for (var index in users){

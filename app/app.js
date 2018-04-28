@@ -16,3 +16,4 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 }]).run(function ($rootScope) {
     $rootScope.loggedInUser=1;
 })
+

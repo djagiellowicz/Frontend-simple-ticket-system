@@ -15,6 +15,6 @@
     </div>
     <div>
         <button ng-if="ctrl.pageNumber > 0" ng-click="ctrl.previousPage()">Previous page</button>
-        <button ng-click="ctrl.nextPage()">Next Page</button>
+        <button ng-if="ctrl.totalNumberOfElements > (ctrl.pageNumber * 10) + 10" ng-click="ctrl.nextPage()">Next Page</button>
     </div>
 </div>

@@ -1,12 +1,27 @@
 <div ng-controller="View2Ctrl as ctrl">
-  <form>
+  <style>
+    .form-control.ng-valid {
+      background-color: lightgreen;
+    }
+    .form-control.ng-dirty.ng-invalid-required {
+      background-color: red;
+    }
+    .form-control.ng-dirty.ng-invalid-minlength {
+      background-color: yellow;
+    }
+  </style>
+  <form id="registration_form" name="registration_form">
     <h1>Registration form:</h1>
     <div class="row form-group">
       <div class="col-md-3">
         <label for="login">Login:</label>
       </div>
       <div class="col-md-9">
-        <input class="form-control" id="login" type="text" ng-model="ctrl.formUser.login"></input>
+        <input class="form-control" name="login" id="login" type="text" ng-model="ctrl.formUser.login"
+               placeholder="Enter login..." required ng-minlength="3"></input>
+        <span ng-show="registration_form.$dirty && registration_form.login.$error.required">This is a required field</span>
+        <span ng-show="registration_form.$dirty && registration_form.login.$error.minlength">Minimum length required is 3</span>
+        <span ng-show="registration_form.$dirty && registration_form.login.$invalid">This field is invalid </span><br/><br/>
       </div>
     </div>
     <div class="row form-group">
@@ -14,7 +29,11 @@
         <label for="name">Name:</label>
       </div>
       <div class="col-md-9">
-        <input class="form-control" id="name" type="text" ng-model="ctrl.formUser.name"></input>
+        <input class="form-control" name="name" id="name" type="text" ng-model="ctrl.formUser.name"
+               placeholder="Enter name..." required ng-minlength="4"></input>
+        <span ng-show="registration_form.$dirty && registration_form.name.$error.required">This is a required field</span>
+        <span ng-show="registration_form.$dirty && registration_form.name.$error.minlength">Minimum length required is 3</span>
+        <span ng-show="registration_form.$dirty && registration_form.name.$invalid">This field is invalid </span><br/><br/>
       </div>
     </div>
     <div class="row form-group" >
@@ -22,7 +41,11 @@
         <label for="surname">Surname:</label>
       </div>
       <div class="col-md-9">
-        <input class="form-control" id="surname" type="text" ng-model="ctrl.formUser.surname"></input>
+        <input class="form-control" name="surname" id="surname" type="text" ng-model="ctrl.formUser.surname",
+               placeholder="Enter surname..." required ng-minlength="4"></input>
+        <span ng-show="registration_form.$dirty && registration_form.surname.$error.required">This is a required field</span>
+        <span ng-show="registration_form.$dirty && registration_form.surname.$error.minlength">Minimum length required is 3</span>
+        <span ng-show="registration_form.$dirty && registration_form.surname.$invalid">This field is invalid </span><br/><br/>
       </div>
     </div>
     <div class="row form-group" >
@@ -30,7 +53,11 @@
         <label for="password">Password:</label>
       </div>
       <div class="col-md-9">
-        <input class="form-control" id="password" type="password" ng-model="ctrl.formUser.password"></input>
+        <input class="form-control" name = "password" id="password" type="password" ng-model="ctrl.formUser.password"
+               placeholder="Enter password..."  required ng-minlength="4"></input>
+        <span ng-show="registration_form.$dirty && registration_form.password.$error.required">This is a required field</span>
+        <span ng-show="registration_form.$dirty && registration_form.password.$error.minlength">Minimum length required is 3</span>
+        <span ng-show="registration_form.$dirty && registration_form.password.$invalid">This field is invalid </span><br/><br/>
       </div>
     </div>
     <div class="row form-group">

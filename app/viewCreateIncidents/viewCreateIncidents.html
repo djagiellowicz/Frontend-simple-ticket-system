@@ -1,5 +1,5 @@
 <div ng-controller="viewCreateIncidentsCtrl as ctrl">
-    <form>
+    <form id="incident_form">
         <h1>Incident creation form:</h1>
         <div class="row form-group">
             <div class="col-md-3">
@@ -28,7 +28,8 @@
         <div class="row form-group">
             <div class="col-md-3"></div>
             <div class="col-md-3">
-                <input class="form-control" type="button" ng-click="ctrl.sendToBackend()" value="Register">
+                <button type="button" class="btn btn-success form-control" type="button" class="btn btn-success" ng-click="ctrl.sendToBackend()"> Register
+                </button>
             </div>
         </div>
     </form>

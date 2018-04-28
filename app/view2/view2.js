@@ -22,7 +22,7 @@ angular.module('myApp.view2', ['ngRoute'])
     $http.post(URL + "/user/register", self.formUser)
         .then(function(data){
           console.log(data);
-
+          document.getElementById("registration_form").reset();
     }), function (data) {
         console.log(data);
 
