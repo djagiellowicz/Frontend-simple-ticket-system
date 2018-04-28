@@ -1,12 +1,16 @@
 <div ng-controller="viewCreateIncidentsCtrl as ctrl">
-    <form id="incident_form">
+    <form id="incident_form" name="incident_form">
         <h1>Incident creation form:</h1>
         <div class="row form-group">
             <div class="col-md-3">
                 <label for="title">Title:</label>
             </div>
             <div class="col-md-9">
-                <input class="form-control" id="title" type="text" ng-model="ctrl.formIncident.title"></input>
+                <input class="form-control" name="title" id="title" type="text" ng-model="ctrl.formIncident.title"
+                       required ng-minlength="3"></input>
+                <span ng-show="incident_form.$dirty && incident_form.title.$error.required">This is a required field</span>
+                <span ng-show="incident_form.$dirty && incident_form.title.$error.minlength">Minimum length required is 3</span>
+                <span ng-show="incident_form.$dirty && incident_form.title.$invalid">This field is invalid </span><br/><br/>
             </div>
         </div>
         <div class="row form-group">
@@ -14,7 +18,11 @@
                 <label for="description">Description:</label>
             </div>
             <div class="col-md-9">
-                <input class="form-control" id="description" type="text" ng-model="ctrl.formIncident.description"></input>
+                <input class="form-control"  name="description" id="description" type="text" ng-model="ctrl.formIncident.description"
+                       required ng-minlength="3"></input>
+                <span ng-show="incident_form.$dirty && incident_form.description.$error.required">This is a required field</span>
+                <span ng-show="incident_form.$dirty && incident_form.description.$error.minlength">Minimum length required is 3</span>
+                <span ng-show="incident_form.$dirty && incident_form.description.$invalid">This field is invalid </span><br/><br/>
             </div>
         </div>
         <div class="row form-group" >
@@ -22,7 +30,11 @@
                 <label for="createdBy">Created by Id:</label>
             </div>
             <div class="col-md-9">
-                <input class="form-control" id="createdBy" type="number" ng-model="ctrl.formIncident.createdById"></input>
+                <input class="form-control" name="createdBy" id="createdBy" type="number" ng-model="ctrl.formIncident.createdById"
+                       ></input>
+                <span ng-show="incident_form.$dirty && incident_form.createdBy.$error.required">This is a required field</span>
+                <span ng-show="incident_form.$dirty && incident_form.createdBy.$error.minlength">Minimum length required is 3</span>
+                <span ng-show="incident_form.$dirty && incident_form.createdBy.$invalid">This field is invalid </span><br/><br/>
             </div>
         </div>
         <div class="row form-group">

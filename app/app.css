@@ -31,5 +31,13 @@
 }
 
 
-
+.form-control.ng-valid {
+  background-color: lightgreen;
+}
+.form-control.ng-dirty.ng-invalid-required {
+  background-color: red;
+}
+.form-control.ng-dirty.ng-invalid-minlength {
+  background-color: yellow;
+}
 
