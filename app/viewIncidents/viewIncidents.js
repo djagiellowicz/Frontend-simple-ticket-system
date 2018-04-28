@@ -53,6 +53,9 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
             self.pageNumber = self.pageNumber - 1;
             self.fetchIncidents();
         };
+        this.alert = function(){
+            alert("It's alive!");
+        }
         self.fetchIncidents();
 
 }]);
