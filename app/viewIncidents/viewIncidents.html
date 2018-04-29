@@ -29,15 +29,70 @@
     <div ng-show="ctrl.showme">
             <p> It's shown! </p>
         <div>
-            <form id="incident_form" name="incident_form">
-                <input class="form-control"  name="id" id="id_form" type="hidden" ng-model="ctrl.formIncident.description"
-                       required ng-minlength="3"></input>
-                <input class="form-control"  name="description" id="description_form" type="text" ng-model="ctrl.formIncident.description"
-                       required ng-minlength="3"></input>
-                <button type="button" class="btn btn-success" type="button" ng-click="ctrl.update()"> Update </button>
-                <button type="button"  type="button" class="btn btn-danger" ng-click="ctrl.remove()"> Remove </button>
-                <button type="button"  type="button" class="btn btn-warning" ng-click="ctrl.showme = false"> Hide </button>
+            <!--<form id="incident_form" name="incident_form">-->
+
+
+
+
+
+
+                <!--<input class="form-control"  name="id" id="id_form" type="hidden" ng-model="ctrl.formIncident.id"-->
+                       <!--required ng-minlength="1"></input>-->
+
+                <!--<div class="col-md-3">-->
+                    <!--<label for="title_form">Title:</label>-->
+                <!--</div>-->
+                <!--<input class="form-control"  name="title" id="title_form" type="text" ng-model="ctrl.formIncident.title"-->
+                       <!--required ng-minlength="3"></input>-->
+
+                <!--<div class="col-md-3">-->
+                    <!--<label for="description_form">Description:</label>-->
+                <!--</div>-->
+                <!--<input class="form-control"  name="description" id="description_form" type="text" ng-model="ctrl.formIncident.description"-->
+                       <!--required ng-minlength="3"></input>-->
+
+                <!--<div class="col-md-3">-->
+                    <!--<label for="creationDate_form">Creation Date:</label>-->
+                <!--</div>-->
+                <!--<input class="form-control"  name="date" id="creationDate_form" type="text" ng-model="ctrl.formIncident.creationDate"-->
+                       <!--required ng-minlength="3"></input>-->
+
+                <!--<div class="col-md-3">-->
+                    <!--<label for="status_form">Status:</label>-->
+                <!--</div>-->
+                <!--<input class="form-control"  name="status" id="status_form" type="text" ng-model="ctrl.formIncident.status"-->
+                       <!--required ng-minlength="3"></input>-->
+
+                <!--<div class="col-md-3">-->
+                    <!--<label for="created_by_login_form">Created by:</label>-->
+                <!--</div>-->
+                <!--<input class="form-control"  name="createdBy" id="created_by_login_form" type="text" ng-model="ctrl.formIncident.createdBy.login"-->
+                       <!--required ng-minlength="1"></input>-->
+
+                <!--<div class="col-md-3">-->
+                    <!--<label for="assigned_to_login_form">Assigned to:</label>-->
+                <!--</div>-->
+                <!--<input class="form-control"  name="assignedTo" id="assigned_to_login_form" type="text" ng-model="ctrl.formIncident.assignedTo.login"-->
+                       <!--&gt;</input>-->
+
+
+                <!--<input class="form-control"  name="createdBy_id_form" id="createdBy_id_form" type="hidden" ng-model="ctrl.formIncident.createdBy.id"-->
+                       <!--&gt;</input>-->
+                <!--<input class="form-control"  name="createdBy_name_form" id="createdBy_name_form" type="hidden" ng-model="ctrl.formIncident.createdBy.name"-->
+                       <!--&gt;</input>-->
+                <!--<input class="form-control"  name="createdBy_surname_form" id="createdBy_surname_form" type="hidden" ng-model="ctrl.formIncident.createdBy.surname"-->
+                       <!--&gt;</input>-->
+                <!--<input class="form-control"  name="assignedTo_id_form" id="assignedTo_id_form" type="hidden" ng-model="ctrl.formIncident.assignedTo.name.id"-->
+                <!--&gt;</input>-->
+                <!--<input class="form-control"  name="assignedTo_name_form" id="assignedTo_name_form" type="hidden" ng-model="ctrl.formIncident.assignedTo.name"-->
+                       <!--&gt;</input>-->
+                <!--<input class="form-control"  name="assignedTo_surname_form" id="assignedTo_surname_form" type="hidden" ng-model="ctrl.formIncident.assignedTo.surname"-->
+                       <!--&gt;</input>-->
             </form>
+            <br>
+            <button type="button" class="btn btn-success" type="button" ng-click="ctrl.update()"> Update </button>
+            <button type="button"  type="button" class="btn btn-danger" ng-click="ctrl.remove()"> Remove </button>
+            <button type="button"  type="button" class="btn btn-warning" ng-click="ctrl.showme = false"> Hide </button>
         </div>
     </div>
 

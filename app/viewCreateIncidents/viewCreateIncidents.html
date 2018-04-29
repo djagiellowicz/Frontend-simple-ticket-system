@@ -18,19 +18,21 @@
                 <label for="description">Description:</label>
             </div>
             <div class="col-md-9">
-                <input class="form-control"  name="description" id="description" type="text" ng-model="ctrl.formIncident.description"
+                <input class="form-control" name="description" id="description" type="text"
+                       ng-model="ctrl.formIncident.description"
                        required ng-minlength="3" placeholder="Enter description..."></input>
                 <span ng-show="incident_form.$dirty && incident_form.description.$error.required">This is a required field</span>
                 <span ng-show="incident_form.$dirty && incident_form.description.$error.minlength">Minimum length required is 3</span>
                 <span ng-show="incident_form.$dirty && incident_form.description.$invalid">This field is invalid </span><br/><br/>
             </div>
         </div>
-        <div class="row form-group" >
+        <div class="row form-group">
             <div class="col-md-3">
                 <label for="createdBy">Created by Id:</label>
             </div>
             <div class="col-md-9">
-                <input class="form-control" name="createdBy" id="createdBy" type="number" ng-model="ctrl.formIncident.createdById"
+                <input class="form-control" name="createdBy" id="createdBy" type="number"
+                       ng-model="ctrl.formIncident.createdById"
                        required ng-minlength="1" placeholder="Enter user id..."></input>
                 <span ng-show="incident_form.$dirty && incident_form.createdBy.$error.required">This is a required field</span>
                 <span ng-show="incident_form.$dirty && incident_form.createdBy.$invalid">This field is invalid </span><br/><br/>
@@ -39,7 +41,8 @@
         <div class="row form-group">
             <div class="col-md-3"></div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-success form-control" type="button" class="btn btn-success" ng-click="ctrl.sendToBackend()"> Register
+                <button type="button" class="btn btn-success form-control" type="button" class="btn btn-success"
+                        ng-click="ctrl.sendToBackend()"> Register
                 </button>
 
             </div>

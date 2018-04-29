@@ -62,7 +62,15 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
                     function (incident) {
                         console.log(incident);
                         document.getElementById("id_form").value = incident.data.object.id;
+                        document.getElementById("title_form").value = incident.data.object.title;
                         document.getElementById("description_form").value = incident.data.object.description;
+                        document.getElementById("creationDate_form").value = incident.data.object.creationDate;
+                        document.getElementById("status_form").value = incident.data.object.status;
+                        document.getElementById("created_by_login_form").value = incident.data.object.createdBy.login;
+                        document.getElementById("createdBy_name_form").value = incident.data.object.assignedTo.name;
+                        document.getElementById("createdBy_surname_form").value = incident.data.object.assignedTo.surname;
+                        document.getElementById("assignedTo_name_form").value = incident.data.object.assignedTo.name;
+                        document.getElementById("assignedTo_surname_form").value = incident.data.object.assignedTo.surname;
                     },
                     function () {
                         console.log("error");
