@@ -17,6 +17,10 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
         self.pageNumber = 0;
         self.totalNumberOfElements = 0;
         self.showme = false;
+        // self.roles = [];
+        self.statusesList = [
+
+        ]
 
 
         this.fetchIncidents = function () {
@@ -79,6 +83,68 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
             alert("It's alive!");
 
         };
+        this.remove = function(){
+            var incidentId = document.getElementById("id_form").value;
+            console.log(incidentId);
+            $http.delete(URL + '/incident/delete/' + incidentId)
+                .then(
+                    function () {
+                        console.log("incident has been deleted");
+                        document.getElementById("incident_update_form").reset();
+                        self.showme = false;
+                        self.fetchIncidents();
+                    },
+                    function () {
+                        console.log("error");
+                    }
+                );
+
+        }
+        // this.fetchRoles = function (){
+        //     $http.get(URL + '/role/list')
+        //         .then(
+        //             function (roles) {
+        //                 console.log(roles);
+        //                 var roles = data.data.objects;
+        //
+        //                 self.roles = [];
+        //
+        //                 for (var index in roles) {
+        //                     console.log(roles[index]);
+        //                     self.roles.push(roles[index]);
+        //                 }
+        //
+        //             },
+        //             function () {
+        //                 console.log("error");
+        //             }
+        //         );
+        //     alert("It's alive!");
+        //
+        // };
+
+        this.fetchStatuses = function () {
+            $http.get(URL + "/incident/status/list")
+                .then(
+                    function (data) {
+                        console.log(data);
+                        var statuses = data.data.objects;
+
+                        self.statusesList = [];
+
+                        for (var index in statuses){
+                            console.log(statuses[index]);
+                            self.statusesList.push(statuses[index]);
+                        }
+                    },
+                    function () {
+                        console.log("error");
+                    }
+                );
+        };
+        self.fetchStatuses();
         self.fetchIncidents();
+
+
 
 }]);
