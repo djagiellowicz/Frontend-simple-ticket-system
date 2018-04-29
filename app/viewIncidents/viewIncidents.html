@@ -13,7 +13,7 @@
         </thead>
         <tbody>
         <tr>
-        <tr ng-click="ctrl.alert()" ng-repeat="element in ctrl.incidentsList">
+        <tr ng-repeat="element in ctrl.incidentsList" ng-click="ctrl.alert(element)" >
             <td>{{element.id}}</td>
             <td>{{element.title}}</td>
             <td>{{element.description}}</td>
@@ -25,6 +25,20 @@
     <div>
         <button class="btn" ng-if="ctrl.pageNumber > 0" ng-click="ctrl.previousPage()">Previous page</button>
         <button class="btn" ng-if="ctrl.totalNumberOfElements > (ctrl.pageNumber * 10) + 10" ng-click="ctrl.nextPage()">Next Page</button>
+    </div>
+    <div ng-show="ctrl.showme">
+            <p> It's shown! </p>
+        <div>
+            <form id="incident_form" name="incident_form">
+                <input class="form-control"  name="id" id="id_form" type="hidden" ng-model="ctrl.formIncident.description"
+                       required ng-minlength="3"></input>
+                <input class="form-control"  name="description" id="description_form" type="text" ng-model="ctrl.formIncident.description"
+                       required ng-minlength="3"></input>
+                <button type="button" class="btn btn-success" type="button" ng-click="ctrl.update()"> Update </button>
+                <button type="button"  type="button" class="btn btn-danger" ng-click="ctrl.remove()"> Remove </button>
+                <button type="button"  type="button" class="btn btn-warning" ng-click="ctrl.showme = false"> Hide </button>
+            </form>
+        </div>
     </div>
 
 </div>
