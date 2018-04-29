@@ -53,8 +53,6 @@
                     <select class="form-control" id="status_form" ng-model="ctrl.formIncident.status">
                         <option ng-repeat="status in ctrl.statusesList" value="{{status}}">{{status}}</option>
                     </select>
-                <!--<input class="form-control"  name="status" id="status_form" type="text" ng-model="ctrl.formIncident.status"-->
-                       <!--required ng-minlength="3"></input>-->
                 </div>
                 <div>
                 <label for="created_by_login_form">Created by:</label>
@@ -80,11 +78,11 @@
                        ></input>
                 <input class="form-control"  name="assignedTo_surname_form" id="assignedTo_surname_form" type="hidden" ng-model="ctrl.formIncident.assignedTo.surname"
                        ></input>
+                <br>
+                <button type="button" class="btn btn-success"  ng-click="ctrl.update()"> Update </button>
+                <button type="button" class="btn btn-danger" ng-click="ctrl.remove()"> Remove </button>
+                <button type="button" class="btn btn-warning" ng-click="ctrl.showme = false"> Hide </button>
             </form>
-            <br>
-            <button type="button" class="btn btn-success" type="button" ng-click="ctrl.update()"> Update </button>
-            <button type="button"  type="button" class="btn btn-danger" ng-click="ctrl.remove()"> Remove </button>
-            <button type="button"  type="button" class="btn btn-warning" ng-click="ctrl.showme = false"> Hide </button>
         </div>
     </div>
 

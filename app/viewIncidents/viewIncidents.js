@@ -17,11 +17,17 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
         self.pageNumber = 0;
         self.totalNumberOfElements = 0;
         self.showme = false;
+        self.formIncident =  {
+            'id': '',
+            'title': '',
+            'description': '',
+            'creationDate': '',
+            'status': '',
+            'assignedTo': '',
+            'createdBy': ''
+        };
         // self.roles = [];
-        self.statusesList = [
-
-        ]
-
+        self.statusesList = [];
 
         this.fetchIncidents = function () {
             if (self.pageNumber != 0) {
@@ -65,16 +71,19 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
                 .then(
                     function (incident) {
                         console.log(incident);
-                        document.getElementById("id_form").value = incident.data.object.id;
-                        document.getElementById("title_form").value = incident.data.object.title;
-                        document.getElementById("description_form").value = incident.data.object.description;
-                        document.getElementById("creationDate_form").value = incident.data.object.creationDate;
-                        document.getElementById("status_form").value = incident.data.object.status;
-                        document.getElementById("created_by_login_form").value = incident.data.object.createdBy.login;
-                        document.getElementById("createdBy_name_form").value = incident.data.object.assignedTo.name;
-                        document.getElementById("createdBy_surname_form").value = incident.data.object.assignedTo.surname;
-                        document.getElementById("assignedTo_name_form").value = incident.data.object.assignedTo.name;
-                        document.getElementById("assignedTo_surname_form").value = incident.data.object.assignedTo.surname;
+                        // document.getElementById("id_form").value = incident.data.object.id;
+                        // document.getElementById("title_form").value = incident.data.object.title;
+                        // document.getElementById("description_form").value = incident.data.object.description;
+                        // document.getElementById("creationDate_form").value = incident.data.object.creationDate;
+                        // document.getElementById("status_form").value = incident.data.object.status;
+                        // document.getElementById("created_by_login_form").value = incident.data.object.createdBy.login;
+                        // document.getElementById("createdBy_name_form").value = incident.data.object.assignedTo.name;
+                        // document.getElementById("createdBy_surname_form").value = incident.data.object.assignedTo.surname;
+                        // document.getElementById("assignedTo_name_form").value = incident.data.object.assignedTo.name;
+                        // document.getElementById("assignedTo_surname_form").value = incident.data.object.assignedTo.surname;
+                        // It's the same
+                        // Have to create new DTO in backend
+                        self.formIncident = incident.data.object;
                     },
                     function () {
                         console.log("error");
@@ -99,7 +108,21 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
                     }
                 );
 
-        }
+        };
+
+        this.update = function(){
+            console.log(self.formIncident);
+            $http.post(URL + '/incident/update', self.formIncident)
+                .then(
+                    function () {
+                        console.log(self.formIncident);
+                    },
+                    function () {
+                        console.log(self.formIncident);
+                    }
+                );
+
+        };
         // this.fetchRoles = function (){
         //     $http.get(URL + '/role/list')
         //         .then(
