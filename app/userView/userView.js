@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.userView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/userView', {
+    templateUrl: 'userView/userView.html',
+    controller: 'UserViewCtrl'
   });
 }])
-    .controller('View1Ctrl', ['$http', '$rootScope', function ($http, $rootScope) {
+    .controller('UserViewCtrl', ['$http', '$rootScope', function ($http, $rootScope) {
         var URL = 'http://localhost:8080';
         var restOfURL = '/user/list';
         var self = this;

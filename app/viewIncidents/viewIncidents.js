@@ -23,8 +23,8 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
             'description': '',
             'creationDate': '',
             'status': '',
-            'assignedTo': '',
-            'createdBy': ''
+            'assignedToId': '',
+            'createdById': ''
         };
         // self.roles = [];
         self.statusesList = [];
@@ -64,7 +64,7 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
             self.pageNumber = self.pageNumber - 1;
             self.fetchIncidents();
         };
-        this.alert = function(data){
+        this.showDetails = function(data){
             var id = data.id;
             self.showme = true;
             $http.get(URL + '/incident/get/' + id)
@@ -93,7 +93,7 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
 
         };
         this.remove = function(){
-            var incidentId = document.getElementById("id_form").value;
+            var incidentId = self.formIncident.id;
             console.log(incidentId);
             $http.delete(URL + '/incident/delete/' + incidentId)
                 .then(
