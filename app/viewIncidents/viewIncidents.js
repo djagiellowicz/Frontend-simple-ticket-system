@@ -17,17 +17,10 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
         self.pageNumber = 0;
         self.totalNumberOfElements = 0;
         self.showme = false;
-        self.formIncident =  {
-            'id': '',
-            'title': '',
-            'description': '',
-            'creationDate': '',
-            'status': '',
-            'assignedToId': '',
-            'createdById': ''
-        };
+        self.formIncident =  [];
         // self.roles = [];
         self.statusesList = [];
+        self.usersList = [];
 
         this.fetchIncidents = function () {
             if (self.pageNumber != 0) {
@@ -111,14 +104,35 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
         };
 
         this.update = function(){
-            console.log(self.formIncident);
-            $http.post(URL + '/incident/update', self.formIncident)
+
+            // This is to be sure that null long value is not send to backend
+            var assignedToId;
+            if (self.formIncident.assignedTo.id === null){
+                assignedToId = 0;
+            }
+            else {
+                assignedToId = self.formIncident.assignedTo.id;
+            }
+
+            var toSend = {
+            'id' : self.formIncident.id,
+            'title' : self.formIncident.title,
+            'description' : self.formIncident.description,
+            'creationDate' : self.formIncident.creationDate,
+            'status' : self.formIncident.status,
+            'createdById' : self.formIncident.createdBy.id,
+            'assignedToId': assignedToId
+
+            }
+            console.log(toSend);
+            $http.post(URL + '/incident/update', toSend)
                 .then(
                     function () {
-                        console.log(self.formIncident);
+                        console.log(toSend);
+                        self.fetchIncidents();
                     },
                     function () {
-                        console.log(self.formIncident);
+                        console.log(toSend);
                     }
                 );
 
@@ -147,24 +161,48 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
         // };
 
         this.fetchStatuses = function () {
-            $http.get(URL + "/incident/status/list")
-                .then(
-                    function (data) {
-                        console.log(data);
-                        var statuses = data.data.objects;
+            if(self.statusesList.length === 0) {
+                $http.get(URL + "/incident/status/list")
+                    .then(
+                        function (data) {
+                            console.log(data);
+                            var statuses = data.data.objects;
 
-                        self.statusesList = [];
+                            self.statusesList = [];
 
-                        for (var index in statuses){
-                            console.log(statuses[index]);
-                            self.statusesList.push(statuses[index]);
+                            for (var index in statuses) {
+                                console.log(statuses[index]);
+                                self.statusesList.push(statuses[index]);
+                            }
+                        },
+                        function () {
+                            console.log("error");
                         }
-                    },
-                    function () {
-                        console.log("error");
-                    }
-                );
+                    );
+            }
         };
+        this.fetchUsers = function () {
+            if(self.usersList.length === 0) {
+                $http.get(URL + "/user/all")
+                    .then(
+                        function (data) {
+                            console.log(data);
+                            var users = data.data.objects;
+
+                            self.usersList = [];
+
+                            for (var index in users) {
+                                console.log(users[index]);
+                                self.usersList.push(users[index]);
+                            }
+                        },
+                        function () {
+                            console.log("error");
+                        }
+                    );
+            }
+        };
+        self.fetchUsers();
         self.fetchStatuses();
         self.fetchIncidents();
 

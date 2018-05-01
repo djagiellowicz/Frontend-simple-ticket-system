@@ -54,23 +54,31 @@
                         <option ng-repeat="status in ctrl.statusesList" value="{{status}}">{{status}}</option>
                     </select>
                 </div>
-                <div>
+                <!--<div>-->
 
-                    <!--name should be displayed, id should be sent-->
-                <label for="created_by_login_form">Created by id:</label>
-                <input class="form-control"  name="createdBy" id="created_by_login_form" type="text" ng-model="ctrl.formIncident.createdBy.id"
-                       required ng-minlength="1"></input>
+                    <!--&lt;!&ndash;name should be displayed, id should be sent&ndash;&gt;-->
+                <!--<label for="created_by_login_form">Created by id:</label>-->
+                <!--<input class="form-control"  name="createdBy" id="created_by_login_form" type="text" ng-model="ctrl.formIncident.createdBy.id"-->
+                       <!--required ng-minlength="1"></input>-->
+                <!--</div>-->
+
+                <div>
+                    <label for="created_by_login_formm">Created by:</label>
+                <select class="form-control" name="createdBy" id="created_by_login_formm" ng-model="ctrl.formIncident.createdBy.login">
+                    <option ng-repeat="user in ctrl.usersList" value="{{user.login}}">{{user.login}}</option>
+                </select>
                 </div>
+
                 <div>
                 <label for="assigned_to_login_form">Assigned to id:</label>
                 <input class="form-control"  name="assignedTo" id="assigned_to_login_form" type="text" ng-model="ctrl.formIncident.assignedTo.id"
                        required ng-minlength="1"></input>
                 </div>
 
-                <input class="form-control"  name="createdBy_id_form" id="createdBy_id_form" type="hidden" ng-model="ctrl.formIncident.createdBy.id"
-                       ></input>
-                <input class="form-control"  name="assignedTo_id_form" id="assignedTo_id_form" type="hidden" ng-model="ctrl.formIncident.assignedTo.name.id"
-                       ></input>
+                <!--<input class="form-control"  name="createdBy_id_form" id="createdBy_id_form" type="hidden" ng-model="ctrl.formIncident.createdBy.id"-->
+                       <!--&gt;</input>-->
+                <!--<input class="form-control"  name="assignedTo_id_form" id="assignedTo_id_form" type="hidden" ng-model="ctrl.formIncident.assignedTo.name.id"-->
+                       <!--&gt;</input>-->
                 <br>
                 <button type="button" class="btn btn-success"  ng-click="ctrl.update()"> Update </button>
                 <button type="button" class="btn btn-danger" ng-click="ctrl.remove()"> Remove </button>

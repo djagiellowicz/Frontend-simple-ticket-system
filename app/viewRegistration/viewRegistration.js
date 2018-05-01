@@ -27,9 +27,5 @@ angular.module('myApp.viewRegistration', ['ngRoute'])
         console.log(data);
 
     }
-
-
   }
-
-
 }]);
