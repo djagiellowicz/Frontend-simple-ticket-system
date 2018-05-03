@@ -51,7 +51,7 @@
                 <div>
                 <label for="status_form">Status:</label>
                     <select class="form-control" id="status_form" ng-model="ctrl.formIncident.status">
-                        <option ng-repeat="status in ctrl.statusesList" value="{{status}}">{{status}}</option>
+                        <option ng-repeat="status in ctrl.statusesList" ng-value="status">{{status}}</option>
                     </select>
                 </div>
                 <!--<div>-->
@@ -64,16 +64,23 @@
 
                 <div>
                     <label for="created_by_login_formm">Created by:</label>
-                <select class="form-control" name="createdBy" id="created_by_login_formm" ng-model="ctrl.formIncident.createdBy.login">
-                    <option ng-repeat="user in ctrl.usersList" value="{{user.login}}">{{user.login}}</option>
+                <select class="form-control" name="createdBy" id="created_by_login_formm" ng-model="ctrl.formIncident.createdBy.id">
+                    <option ng-repeat="user in ctrl.usersList" ng-value="user.id">{{user.login}}</option>
                 </select>
                 </div>
 
                 <div>
-                <label for="assigned_to_login_form">Assigned to id:</label>
-                <input class="form-control"  name="assignedTo" id="assigned_to_login_form" type="text" ng-model="ctrl.formIncident.assignedTo.id"
-                       required ng-minlength="1"></input>
+                    <label for="assigned_to_login_form">Assigned to:</label>
+                    <select class="form-control" name="assignedTo" id="assigned_to_login_form" ng-model="ctrl.formIncident.assignedTo.id">
+                        <option ng-repeat="user in ctrl.usersList" ng-value="user.id">{{user.login}}</option>
+                    </select>
                 </div>
+
+                <!--<div>-->
+                <!--<label for="assigned_to_login_form">Assigned to id:</label>-->
+                <!--<input class="form-control"  name="assignedTo" id="assigned_to_login_form" type="text" ng-model="ctrl.formIncident.assignedTo.id"-->
+                       <!--required ng-minlength="1"></input>-->
+                <!--</div>-->
 
                 <!--<input class="form-control"  name="createdBy_id_form" id="createdBy_id_form" type="hidden" ng-model="ctrl.formIncident.createdBy.id"-->
                        <!--&gt;</input>-->

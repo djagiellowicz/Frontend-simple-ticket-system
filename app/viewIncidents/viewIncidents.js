@@ -77,6 +77,8 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
                         // It's the same
                         // Have to create new DTO in backend
                         self.formIncident = incident.data.object;
+                        console.log("huhuhuhu");
+                        console.log(self.formIncident);
                     },
                     function () {
                         console.log("error");
