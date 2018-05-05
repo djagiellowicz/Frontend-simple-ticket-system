@@ -10,7 +10,8 @@ angular.module('myApp.userView', ['ngRoute'])
 }])
     .controller('UserViewCtrl', ['$http', '$rootScope', function ($http, $rootScope) {
         var URL = 'http://localhost:8080';
-        var restOfURL = '/user/list';
+        var listURL = '/user/list';
+        var removeURL = '/user/delete/';
         var self = this;
         self.loggedInUser = $rootScope.loggedInUser;
         self.userList = [];
@@ -19,13 +20,13 @@ angular.module('myApp.userView', ['ngRoute'])
 
         this.fetchUsers = function () {
           if (self.pageNumber != 0) {
-            restOfURL = '/user/list/' + self.pageNumber;
+            listURL = '/user/list/' + self.pageNumber;
           }
           else{
-            restOfURL = '/user/list';
+            listURL = '/user/list';
           }
 
-            $http.get(URL + restOfURL)
+            $http.get(URL + listURL)
                 .then(
                     function (data) {
                         console.log(data);
@@ -53,7 +54,19 @@ angular.module('myApp.userView', ['ngRoute'])
           self.pageNumber = self.pageNumber - 1;
           self.fetchUsers();
         };
-        self.fetchUsers();
+        this.remove = function(id) {
+            $http.post(URL + removeURL + id, null)
+                .then(
+                    function () {
+                        console.log("User removed");
+                        self.fetchUsers();
+                    },
+                    function () {
+                        console.log("error");
+                    }
+                );
+        };
+            self.fetchUsers();
 
 
-}]);
+        }]);

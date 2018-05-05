@@ -28,21 +28,23 @@
         </div>
         <div class="row form-group">
             <div class="col-md-3">
-                <label for="createdBy">Created by Id:</label>
+                <label for="createdBy">Created by:</label>
             </div>
             <div class="col-md-9">
-                <input class="form-control" name="createdBy" id="createdBy" type="number"
-                       ng-model="ctrl.formIncident.createdById"
-                       required ng-minlength="1" placeholder="Enter user id..."></input>
+                <select class="form-control" name="createdBy" id="createdBy" ng-model="ctrl.formIncident.createdById">
+                        <option ng-repeat="user in ctrl.usersList" ng-value="user.id">{{user.login}}</option>
+                 </select>
+                <!--<input class="form-control" name="createdBy" id="createdBy" type="number"-->
+                       <!--ng-model="ctrl.formIncident.createdById"-->
+                       <!--required ng-minlength="1" placeholder="Enter user id..."></input>-->
                 <span ng-show="incident_form.$dirty && incident_form.createdBy.$error.required">This is a required field</span>
-                <span ng-show="incident_form.$dirty && incident_form.createdBy.$invalid">This field is invalid </span><br/><br/>
             </div>
         </div>
         <div class="row form-group">
             <div class="col-md-3"></div>
             <div class="col-md-3">
                 <button type="button" class="btn btn-success form-control" ng-click="ctrl.sendToBackend()"
-                        ng-disabled="incident_form.$invalid"> Register </button>
+                        ng-disabled="incident_form.$invalid && incident_form.$invalid "> Register </button>
 
             </div>
         </div>

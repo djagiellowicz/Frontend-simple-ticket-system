@@ -22,9 +22,14 @@ angular.module('myApp.viewRegistration', ['ngRoute'])
     $http.post(URL + "/user/register", self.formUser)
         .then(function(data){
           console.log(data);
+          if (data.status === 200){
+              alert("Username already taken");
+              return;
+          }
           document.getElementById("registration_form").reset();
     }), function (data) {
         console.log(data);
+        console.log("error");
 
     }
   }

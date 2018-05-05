@@ -1,15 +1,17 @@
 <p>This is the partial for view 1.</p>
 <div ng-controller="UserViewCtrl as ctrl">
-    <h1>Current user list</h1>
+    <h1>Current users list</h1>
     <div class="row">
     <table class ="table table-striped">
         <thead>
         <th> Identifier </th>
         <th> Login </th>
+        <th> Actions </th>
         </thead>
         <tr ng-repeat="element in ctrl.userList" ng-class="ctrl.loggedInUser==element.id ? 'red-label' : '' ">
             <td>{{element.id}}</td>
             <td>{{element.login}}</td>
+            <td><button class="btn btn-danger" ng-click="ctrl.remove(element.id);">Remove</button></td>
         </tr>
     </table>
     </div>
