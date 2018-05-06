@@ -6,7 +6,7 @@
         <label for="login">Login:</label>
       </div>
       <div class="col-md-9">
-        <input class="form-control" name="login" id="login" type="text" placeholder="Enter login..."></input>
+        <input class="form-control" name="login" id="login" type="text" ng-model="ctrl.formLogin.username" placeholder="Enter login..."></input>
       </div>
     </div>
     <div class="row form-group">
@@ -14,7 +14,7 @@
         <label for="password">Password:</label>
       </div>
       <div class="col-md-9">
-        <input class="form-control" name="password" id="password" type="password" placeholder="Enter password..."></input>
+        <input class="form-control" name="password" id="password" type="password" ng-model="ctrl.formLogin.password" placeholder="Enter password..."></input>
 
       </div>
     </div>

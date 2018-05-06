@@ -9,7 +9,8 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
   });
 }])
 
-    .controller('ViewIncidentsCtrl', ['$http', function ($http) {
+    .controller('ViewIncidentsCtrl', ['$http', '$rootScope', 'AuthorisationService', function ($http, $rootScope, AuthorisationService) {
+
         var URL = 'http://localhost:8080';
         var restOfURL = '/incident/list';
         var self = this;

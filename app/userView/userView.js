@@ -8,12 +8,12 @@ angular.module('myApp.userView', ['ngRoute'])
     controller: 'UserViewCtrl'
   });
 }])
-    .controller('UserViewCtrl', ['$http', '$rootScope', function ($http, $rootScope) {
+    .controller('UserViewCtrl', ['$http', 'AuthorisationService', '$rootScope', function ($http, $rootScope, AuthorisationService) {
         var URL = 'http://localhost:8080';
         var listURL = '/user/list';
         var removeURL = '/user/delete/';
         var self = this;
-        self.loggedInUser = $rootScope.loggedInUser;
+        // self.loggedInUser = AuthorisationService.loggedInUser.id;
         self.userList = [];
         self.pageNumber = 0;
         self.totalNumberOfElements = 0;

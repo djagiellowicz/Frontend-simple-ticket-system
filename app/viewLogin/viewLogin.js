@@ -9,23 +9,33 @@ angular.module('myApp.viewLogin', ['ngRoute'])
   });
 }])
 
-.controller('ViewLoginCtrl', ['$http', function ($http) {
+.controller('ViewLoginCtrl',['$http', '$window','$rootScope' , 'AuthorisationService', function ($http,$window,$rootScope, AuthorisationService) {
   var self = this;
   var URL = 'http://localhost:8080';
+  this.formLogin = {
+      'username' : '',
+      'password' : ''
+  };
 
   this.login = function () {
-    $http.post(URL + "/user/register", self.formUser)
-        .then(function(data){
-          console.log(data);
-          if (data.status === 200){
-              alert("Username already taken");
-              return;
-          }
-          document.getElementById("registration_form").reset();
-    }), function (data) {
-        console.log(data);
-        console.log("error");
+    $http.post(URL + "/authenticate", self.formLogin)
+        .then(function (response) {
+            console.log("User has logged in: " + response);
 
-    }
-  }
+            var token = response.data.token;
+            var loggedInUser = response.data.user;
+
+            AuthorisationService.loggedInUser = loggedInUser;
+
+            $window.sessionStorage.setItem('token', token);
+            $window.sessionStorage.setItem('user_id', loggedInUser.id);
+
+            window.location = "#!/";
+
+            $rootScope.loggedIn = true;
+
+        }, function (response) {
+            console.log("Error: " + response);
+        });
+  };
 }]);

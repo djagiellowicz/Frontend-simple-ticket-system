@@ -9,7 +9,7 @@ angular.module('myApp.viewCreateIncidents', ['ngRoute'])
         });
     }])
 
-    .controller('viewCreateIncidentsCtrl', ['$http', function ($http) {
+    .controller('viewCreateIncidentsCtrl', ['$http', 'AuthorisationService', function ($http, AuthorisationService) {
         var self = this;
         var URL = 'http://localhost:8080';
         var formIncident = {
