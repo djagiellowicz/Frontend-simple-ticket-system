@@ -33,6 +33,7 @@ angular.module('myApp.viewLogin', ['ngRoute'])
             window.location = "#!/";
 
             $rootScope.loggedIn = true;
+            location.reload();
 
         }, function (response) {
             console.log("Error: " + response);
