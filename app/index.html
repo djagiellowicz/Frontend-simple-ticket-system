@@ -25,16 +25,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item"  ng-if="loggedIn">
           <a class="nav-link" href="#!/userView">Users list</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#!/viewRegistration">Registration</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"  ng-if="loggedIn">
           <a class="nav-link" href="#!/viewIncidents">View incidents</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"  ng-if="loggedIn">
           <a class="nav-link" href="#!/viewCreateIncidents">Create incidents</a>
         </li>
         <li class="nav-item">
