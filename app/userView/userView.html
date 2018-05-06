@@ -1,4 +1,3 @@
-<p>This is the partial for view 1.</p>
 <div ng-controller="UserViewCtrl as ctrl">
     <h1>Current users list</h1>
     <div class="row">
@@ -11,7 +10,8 @@
         <tr ng-repeat="element in ctrl.userList" ng-class="ctrl.loggedInUser==element.id ? 'red-label' : '' ">
             <td>{{element.id}}</td>
             <td>{{element.login}}</td>
-            <td><button class="btn btn-danger" ng-click="ctrl.remove(element.id);">Remove</button></td>
+            <td><button class="btn btn-danger" ng-click="ctrl.remove(element.id);">Remove</button>
+                <button class="btn btn-warning" ng-click="ctrl.edit(element.id);">Edit</button></td>
         </tr>
     </table>
     </div>
@@ -19,4 +19,16 @@
         <button class="btn" ng-if="ctrl.pageNumber > 0" ng-click="ctrl.previousPage()">Previous page</button>
         <button class="btn" ng-if="ctrl.totalNumberOfElements > (ctrl.pageNumber * 10) + 10" ng-click="ctrl.nextPage()">Next Page</button>
     </div>
+
+    <div ng-show="ctrl.showUser">
+        <p> User has been shown! </p>
+        <!--TODO: Create adding roles-->
+        <div>
+            <form id="user_update_form" name="user_update_form">
+                <input class="form-control"  name="id" id="id_form" type="hidden">
+
+                <button type="button" class="btn btn-success"  ng-click="ctrl.update()"> Update </button>
+                <button type="button" class="btn btn-warning" ng-click="ctrl.showUser = false"> Hide </button>
+            </form>
+
 </div>

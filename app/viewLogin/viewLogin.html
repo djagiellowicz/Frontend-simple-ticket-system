@@ -1,0 +1,29 @@
+<div ng-controller="ViewLoginCtrl as ctrl">
+  <form id="login_form" name="login_form">
+    <h1>Login form:</h1>
+    <div class="row form-group">
+      <div class="col-md-3">
+        <label for="login">Login:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" name="login" id="login" type="text" placeholder="Enter login..."></input>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        <label for="password">Password:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" name="password" id="password" type="password" placeholder="Enter password..."></input>
+
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <input class="form-control btn btn-success" type="button" ng-click="ctrl.login()"
+               value="Login">
+      </div>
+    </div>
+  </form>
+</div>

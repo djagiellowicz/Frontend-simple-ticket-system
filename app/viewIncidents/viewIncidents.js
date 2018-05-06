@@ -77,7 +77,6 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
                         // It's the same
                         // Have to create new DTO in backend
                         self.formIncident = incident.data.object;
-                        console.log("huhuhuhu");
                         console.log(self.formIncident);
                     },
                     function () {
@@ -125,7 +124,7 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
             'createdById' : self.formIncident.createdBy.id,
             'assignedToId': assignedToId
 
-            }
+            };
             console.log(toSend);
             $http.post(URL + '/incident/update', toSend)
                 .then(
@@ -158,7 +157,6 @@ angular.module('myApp.viewIncidents', ['ngRoute'])
         //                 console.log("error");
         //             }
         //         );
-        //     alert("It's alive!");
         //
         // };
 

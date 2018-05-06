@@ -17,6 +17,8 @@ angular.module('myApp.userView', ['ngRoute'])
         self.userList = [];
         self.pageNumber = 0;
         self.totalNumberOfElements = 0;
+        self.showUser = false;
+        self.formUser;
 
         this.fetchUsers = function () {
           if (self.pageNumber != 0) {
@@ -45,6 +47,19 @@ angular.module('myApp.userView', ['ngRoute'])
                     }
                 );
         };
+        this.edit = function (id) {
+            $http.get(URL + '/user/get/' + id)
+                .then(
+                    function (user) {
+                        console.log(user.data.object);
+                        self.formUser = user.data.object;
+                        self.showUser = true;
+                    },
+                    function () {
+                        console.log("error");
+                    }
+                );
+        }
 
         this.nextPage = function(){
           self.pageNumber = self.pageNumber + 1;
