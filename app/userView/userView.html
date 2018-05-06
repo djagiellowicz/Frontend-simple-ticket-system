@@ -7,7 +7,7 @@
         <th> Login </th>
         <th> Actions </th>
         </thead>
-        <tr ng-repeat="element in ctrl.userList" ng-class="ctrl.loggedInUser==element.id ? 'red-label' : '' ">
+        <tr ng-repeat="element in ctrl.userList" ng-class="ctrl.authorisation.logged_in_id==element.id ? 'red-label' : '' ">
             <td>{{element.id}}</td>
             <td>{{element.login}}</td>
             <td><button class="btn btn-danger" ng-click="ctrl.remove(element.id);">Remove</button>

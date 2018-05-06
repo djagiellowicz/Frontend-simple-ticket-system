@@ -7,5 +7,6 @@ angular.module('myApp.authorisationService', ['ngRoute'])
             'id': '',
             'login': ''
         };
+        this.self = this;
     }]);
 
